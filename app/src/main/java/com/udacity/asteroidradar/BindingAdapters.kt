@@ -15,10 +15,7 @@ fun bindImageOfTheDay(imageView: ImageView, image: NetworkDailyImage?) {
                 .into(imageView)
             imageView.contentDescription = image.title
         } else {
-            Picasso.get().load(image.thumbnailUrl)
-                .placeholder(R.drawable.placeholder_picture_of_day)
-                .into(imageView)
-            imageView.contentDescription = image.title
+            imageView.contentDescription = "This is NASA's picture of day, showing nothing yet"
         }
     }
 }
@@ -27,8 +24,10 @@ fun bindImageOfTheDay(imageView: ImageView, image: NetworkDailyImage?) {
 fun bindAsteroidStatusImage(imageView: ImageView, isHazardous: Boolean) {
     if (isHazardous) {
         imageView.setImageResource(R.drawable.ic_status_potentially_hazardous)
+        imageView.contentDescription = "Potentially hazardous asteroid image"
     } else {
         imageView.setImageResource(R.drawable.ic_status_normal)
+        imageView.contentDescription = "Not hazardous asteroid image"
     }
 }
 

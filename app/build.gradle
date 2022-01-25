@@ -5,6 +5,8 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'kotlin-android-extensions'
 
+
+
 android {
     compileSdkVersion 30
     buildToolsVersion "29.0.3"
@@ -17,6 +19,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField 'String', "API_KEY", "\"${myApiNasa}\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -63,10 +68,6 @@ dependencies {
 
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-//    implementation "androidx.room:room-runtime:2.2.5"
-//    kapt "androidx.room:room-compiler:2.2.5"
-
-    def room_version = "2.4.1"
     implementation "androidx.room:room-ktx:$room_version"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"

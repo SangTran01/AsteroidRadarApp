@@ -13,8 +13,8 @@ interface AsteroidDao {
     @Query("SELECT * FROM asteroid ORDER BY closeApproachDate DESC")
     suspend fun getAllAsteroids(): List<Asteroid>
 
-    @Query("SELECT * FROM asteroid WHERE closeApproachDate == :date ORDER BY closeApproachDate DESC")
-    suspend fun getTodaysAsteroids(date: String): List<Asteroid>
+    @Query("SELECT * FROM asteroid WHERE closeApproachDate BETWEEN :startDate AND :endDate ORDER BY closeApproachDate DESC")
+    suspend fun getWeeklyAsteroids(startDate: String, endDate:String): List<Asteroid>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(vararg asteroid: DatabaseAsteroid)

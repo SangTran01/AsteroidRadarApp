@@ -16,5 +16,5 @@ interface AsteroidRepository {
 
     suspend fun getAsteroidsFromDatabase(): List<Asteroid>
 
-    suspend fun getTodaysAsteroidsFromDatabase(): List<Asteroid>
+    suspend fun getWeeklyAsteroidsFromDatabase(): List<Asteroid>
 }
