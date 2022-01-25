@@ -52,7 +52,9 @@ data class NetworkDailyImage(
     val url: String,
     @Json(name = "media_type")
     val mediaType: String,
-    val title: String
+    val title: String,
+    @Json(name = "thumbnail_url")
+    val thumbnailUrl: String
 )
 
 data class NetworkDiameter(
