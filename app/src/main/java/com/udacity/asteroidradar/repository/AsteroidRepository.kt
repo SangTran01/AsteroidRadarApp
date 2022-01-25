@@ -15,4 +15,6 @@ interface AsteroidRepository {
     suspend fun refreshData()
 
     suspend fun getAsteroidsFromDatabase(): List<Asteroid>
+
+    suspend fun getTodaysAsteroidsFromDatabase(): List<Asteroid>
 }

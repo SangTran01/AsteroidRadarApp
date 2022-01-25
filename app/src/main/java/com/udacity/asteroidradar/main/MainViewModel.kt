@@ -34,7 +34,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private suspend fun getAsteroids() {
         repository.refreshData()
-        _asteroids.value  = repository.getAsteroidsFromDatabase()
+        _asteroids.value  = repository.getTodaysAsteroidsFromDatabase()
     }
 }
 

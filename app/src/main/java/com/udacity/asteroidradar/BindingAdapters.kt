@@ -14,6 +14,8 @@ fun bindImageOfTheDay(imageView: ImageView, image: NetworkDailyImage?) {
                 .placeholder(R.drawable.placeholder_picture_of_day)
                 .into(imageView)
             imageView.contentDescription = image.title
+        } else {
+            imageView.contentDescription = "Image of the Day"
         }
     }
 }
@@ -31,8 +33,10 @@ fun bindAsteroidStatusImage(imageView: ImageView, isHazardous: Boolean) {
 fun bindDetailsStatusImage(imageView: ImageView, isHazardous: Boolean) {
     if (isHazardous) {
         imageView.setImageResource(R.drawable.asteroid_hazardous)
+        imageView.contentDescription = "Potentially hazardous asteroid image"
     } else {
         imageView.setImageResource(R.drawable.asteroid_safe)
+        imageView.contentDescription = "Not hazardous asteroid image"
     }
 }
 
